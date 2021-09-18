@@ -3,3 +3,10 @@ import os
 
 web = Blueprint('web', __name__)
 
+
+
+
+
+@web.route('/')
+def index():
+    return render_template('index.html')

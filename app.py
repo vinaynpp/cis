@@ -8,12 +8,8 @@ app.register_blueprint(web, static_folder='static', template_folder='templates')
 app.register_blueprint(api, url_prefix='/api', static_folder='static', template_folder='templates')
 
 
-
 def initialization():
     print("ohh it's working")
-
-
-app.before_first_request(initialization)
 
 
 @app.route('/favicon.ico')
@@ -22,10 +18,8 @@ def favicon():
                                'favicon_io/favicon.ico', mimetype='image/vnd.microsoft.icon')
 
 
-@app.route('/')
-def index():
-    return render_template('index.html')
+app.before_first_request(initialization)
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
-    app.run(threaded=True, port=port, debug=True)
+    app.run(threaded=True, port=port, debug=True, host="0.0.0.0")
