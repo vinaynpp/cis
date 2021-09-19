@@ -46,6 +46,7 @@ def match():
             file.save(filepath)
             loadedrules = yara.load('yaraoyara/loaded.bin')
             result = loadedrules.match(filepath)
+            os.remove(filepath)
             print(result)
             if not result:
                 result.append("CLEAN")
