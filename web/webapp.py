@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template, send_from_directory, request, redirect, url_for, flash, jsonify
 import os
+import yara
 
 from werkzeug.utils import secure_filename
 
@@ -43,7 +44,9 @@ def match():
             filename = secure_filename(file.filename)
             filepath = os.path.join(UPLOAD_FOLDER, filename)
             file.save(filepath)
-            result = matchthis(filepath)
+            loadedrules = yara.load('yaraoyara/loaded.bin')
+            result = loadedrules.match(file)
+            print(result)
             if not result:
                 result.append("CLEAN")
 
