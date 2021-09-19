@@ -2,13 +2,33 @@ from flask import Flask, render_template, request, redirect, url_for, flash, jso
 import os
 from api.apiapp import api
 from web.webapp import web
+import yara
+from git import Repo
+from pathlib import Path
+import shutil
 
 app = Flask(__name__, static_folder='static', template_folder='templates')
 app.register_blueprint(web, static_folder='static', template_folder='templates')
 app.register_blueprint(api, url_prefix='/api', static_folder='static', template_folder='templates')
 
+app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
+
+UPLOAD_FOLDER = '../uploaded/'
+
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 def initialization():
+    dirpath = Path('yaraoyara/repo/')
+
+    if not dirpath.exists():
+        Repo.clone_from("https://github.com/Yara-Rules/rules", "yaraoyara/repo/")
+
+    indexdict = {
+        'malware': 'yaraoyara/repo/malware_index.yar',
+        'maldocs': 'yaraoyara/repo/maldocs_index.yar',
+        'mobile_malware': 'yaraoyara/repo/mobile_malware_index.yar'}
+    rules = yara.compile(filepaths=indexdict)
+    rules.save('yaraoyara/loaded.bin')
     print("ohh it's working")
 
 
