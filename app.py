@@ -20,15 +20,14 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 def initialization():
     dirpath = Path('yaraoyara/repo/')
 
-    # if not dirpath.exists():
-        #Repo.clone_from("https://github.com/Yara-Rules/rules", "yaraoyara/repo/")
+    if not dirpath.exists():
+        Repo.clone_from("https://github.com/Yara-Rules/rules", "yaraoyara/repo/")
 
-    # indexdict = {
-     #   'malware': 'yaraoyara/repo/malware_index.yar',
-     #   'maldocs': 'yaraoyara/repo/maldocs_index.yar',
-      #  'mobile_malware': 'yaraoyara/repo/mobile_malware_index.yar'}
-   # rules = yara.compile(filepaths=indexdict)
-    #rules.save('yaraoyara/loaded.bin')
+    indexdicti = {'malware': 'yaraoyara/repo/malware_index.yar',
+        'maldocs': 'yaraoyara/repo/maldocs_index.yar',
+        'mobile_malware': 'yaraoyara/repo/mobile_malware_index.yar'}
+    rules = yara.compile(filepaths=indexdicti)
+    rules.save('yaraoyara/loaded.bin')
     print("ohh it's working")
 
 
