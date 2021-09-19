@@ -25,5 +25,5 @@ def matchthis(file):
 
 # matches = rules.match('Keygen.exe')
 
-matchthis('yaraoyara/AutoPico.exe')
+# matchthis('yaraoyara/AutoPico.exe')
 # print(matches)
