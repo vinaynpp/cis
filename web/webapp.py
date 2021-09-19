@@ -45,7 +45,7 @@ def match():
             filepath = os.path.join(UPLOAD_FOLDER, filename)
             file.save(filepath)
             loadedrules = yara.load('yaraoyara/loaded.bin')
-            result = loadedrules.match(file)
+            result = loadedrules.match(filepath)
             print(result)
             if not result:
                 result.append("CLEAN")
