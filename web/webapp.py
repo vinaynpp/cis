@@ -9,7 +9,7 @@ from yaraoyara.matchmaking import matchthis
 web = Blueprint('web', __name__)
 UPLOAD_FOLDER = 'uploaded/'
 
-ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif', 'doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx', 'exe',
+ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif', 'doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx', 'exe','ini','conf','html','htm','css','js','json','xml','yara','yml',
                       'sh', '', '*'}
 
 
