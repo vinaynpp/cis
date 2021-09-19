@@ -40,7 +40,8 @@ def match():
             print("nofilename")
             flash('No selected file')
             return redirect(request.url)
-        if file and allowed_file(file.filename):
+        if file :
+    #    if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             filepath = os.path.join(UPLOAD_FOLDER, filename)
             file.save(filepath)
