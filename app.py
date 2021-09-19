@@ -17,18 +17,18 @@ UPLOAD_FOLDER = '../uploaded/'
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-dirpath = Path('yaraoyara/repo/')
+def initialization():
+    dirpath = Path('yaraoyara/repo/')
 
-if not dirpath.exists():
-    Repo.clone_from("https://github.com/Yara-Rules/rules", "yaraoyara/repo/")
+    if not dirpath.exists():
+        Repo.clone_from("https://github.com/Yara-Rules/rules", "yaraoyara/repo/")
 
-indexdicti = {'malware': 'yaraoyara/repo/malware_index.yar',
-    'maldocs': 'yaraoyara/repo/maldocs_index.yar',
-    'mobile_malware': 'yaraoyara/repo/mobile_malware_index.yar'}
-rules = yara.compile(filepaths=indexdicti)
-rules.save('yaraoyara/loaded.bin')
-print("ohh it's working")
-
+    indexdicti = {'malware': 'yaraoyara/repo/malware_index.yar',
+        'maldocs': 'yaraoyara/repo/maldocs_index.yar',
+        'mobile_malware': 'yaraoyara/repo/mobile_malware_index.yar'}
+    rules = yara.compile(filepaths=indexdicti)
+    rules.save('yaraoyara/loaded.bin')
+    print("ohh it's working")
 
 
 @app.route('/favicon.ico')
