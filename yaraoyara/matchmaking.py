@@ -4,16 +4,16 @@ from git import Repo
 
 # git.Git("/rules").clone("git://github.com/Yara-Rules/rules.git")
 
-def setup_yara():
-    indexdict = {
-        'malware': '../yaraoyara/repo/malware_index.yar',
-        'maldocs': '../yaraoyara/repo/maldocs_index.yar',
-        'mobile_malware': '../yaraoyara/repo/mobile_malware_index.yar'}
-    rules = yara.compile(filepaths=indexdict)
-    rules.save('../yaraoyara/loaded.bin')
-    loaded = yara.load('../yaraoyara/loaded.bin')
+#def setup_yara():
+#    indexdict = {
+#        'malware': '../yaraoyara/repo/malware_index.yar',
+#        'maldocs': '../yaraoyara/repo/maldocs_index.yar',
+#        'mobile_malware': '../yaraoyara/repo/mobile_malware_index.yar'}
+#    rules = yara.compile(filepaths=indexdict)
+#    rules.save('../yaraoyara/loaded.bin')
+#    loaded = yara.load('../yaraoyara/loaded.bin')#
 
-    return loaded
+#    return loaded
 
 
 def matchthis(file):

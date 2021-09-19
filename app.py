@@ -20,8 +20,8 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 def initialization():
     dirpath = Path('yaraoyara/repo/')
 
-    if not dirpath.exists():
-        Repo.clone_from("https://github.com/Yara-Rules/rules", "yaraoyara/repo/")
+    # if not dirpath.exists():
+        #Repo.clone_from("https://github.com/Yara-Rules/rules", "yaraoyara/repo/")
 
     indexdict = {
         'malware': 'yaraoyara/repo/malware_index.yar',
