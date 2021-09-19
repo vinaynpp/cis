@@ -26,7 +26,7 @@ def initialization():
 #    indexdicti = {'malware': 'yaraoyara/repo/malware_index.yar',
  #       'maldocs': 'yaraoyara/repo/maldocs_index.yar',
  #       'mobile_malware': 'yaraoyara/repo/mobile_malware_index.yar'}
-    rules = yara.compile('result.yar')
+    rules = yara.compile('yaraoyara/files/index.yar')
     rules.save('yaraoyara/loaded.bin')
     print("ohh it's working")
 
